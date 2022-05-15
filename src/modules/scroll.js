@@ -1,5 +1,6 @@
 const scroll = () => {
     const linkUp = document.querySelector('.up');
+    const anchors = document.querySelectorAll('a[href*="#"]');
 
 
     linkUp.style.display = "none";
@@ -18,6 +19,20 @@ const scroll = () => {
             linkUp.style.display = "block";
         }
     });
+
+
+    for (let anchor of anchors) {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+
+            const blockID = anchor.getAttribute('href').substr(1);
+
+            document.getElementById(blockID).scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        });
+    }
 };
 
 export default scroll;
