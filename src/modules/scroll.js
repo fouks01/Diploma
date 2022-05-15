@@ -1,5 +1,4 @@
 const scroll = () => {
-
     const linkUp = document.querySelector('.up');
 
 
@@ -11,6 +10,7 @@ const scroll = () => {
         behavior: 'smooth',
     }));
 
+
     window.addEventListener('scroll', function () {
         if (window.pageYOffset < 1000) {
             linkUp.style.display = "none";
@@ -18,7 +18,6 @@ const scroll = () => {
             linkUp.style.display = "block";
         }
     });
-
 };
 
 export default scroll;
