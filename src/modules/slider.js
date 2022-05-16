@@ -3,9 +3,16 @@ const slider = () => {
     const slides = sliderBlock.querySelectorAll('.item');
     const timerInterval = 3000;
 
+    const sliderTable = document.querySelectorAll('.table');
 
     let currentSlide = 0;
     let interval;
+
+    sliderTable.forEach((e) => {
+        e.style.opacity = 1;
+        e.style.visibility = 'visible';
+    });
+
 
     const prevSlide = (elems, index, strClass) => {
         elems[index].classList.remove(strClass);
