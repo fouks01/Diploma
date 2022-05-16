@@ -58,7 +58,7 @@ const sendForm = ({
 
 
         formData.forEach((val, key) => {
-            formBody[key] = val;
+            formBody[key] = val.trim();
         });
 
 

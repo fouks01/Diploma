@@ -5,13 +5,40 @@ const slider = () => {
 
     const sliderTable = document.querySelectorAll('.table');
 
+    const sliderContainer = sliderBlock.querySelectorAll('.container');
+    const sliderTitle = sliderBlock.querySelectorAll('.big');
+
+
     let currentSlide = 0;
     let interval;
 
-    sliderTable.forEach((e) => {
-        e.style.opacity = 1;
-        e.style.visibility = 'visible';
+
+
+    const textSize = () => {
+        if (screen.width > 992) {
+            sliderTable.forEach((e) => {
+                e.style.opacity = 1;
+                e.style.visibility = 'visible';
+            });
+        }
+
+        if (992 < screen.width && screen.width < 1666) {
+            sliderContainer.forEach((e) => {
+                e.style.width = 700 + 'px';
+            });
+
+            sliderTitle.forEach((e) => {
+                e.style.fontSize = 60 + 'px';
+            });
+        }
+    };
+
+
+    window.addEventListener('resize', () => {
+        textSize();
     });
+
+
 
 
     const prevSlide = (elems, index, strClass) => {
@@ -74,6 +101,7 @@ const slider = () => {
     }, true);
 
     startSlide(timerInterval);
+    textSize();
 };
 
 export default slider;
