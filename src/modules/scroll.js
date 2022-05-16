@@ -1,10 +1,19 @@
 const scroll = () => {
     const linkUp = document.querySelector('.up');
     const anchors = document.querySelectorAll('a[href*="#"]');
+    const sliderTable = document.querySelectorAll('.table');
+
+    console.log(sliderTable);
+
 
 
     linkUp.style.display = "none";
 
+
+    sliderTable.forEach((e) => {
+        e.style.opacity = 1;
+        e.style.visibility = 'visible';
+    });
 
     linkUp.addEventListener('click', () => window.scrollTo({
         top: 0,
