@@ -52,7 +52,6 @@ const sendForm = ({
         const formData = new FormData(form);
         const formBody = {};
 
-        statusBlock.textContent = loadText;
 
         form.append(statusBlock);
 
@@ -64,6 +63,8 @@ const sendForm = ({
 
 
         if (validate(formElements)) {
+            statusBlock.textContent = loadText;
+
             sendData(formBody).then(data => {
                     statusBlock.textContent = successText;
                     setTimeout(() => {
